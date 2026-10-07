@@ -1,0 +1,10 @@
+services:
+  frontend:
+    build: .
+    cap_add: [NET_ADMIN]
+    ports: ["5173:80"]
+    networks: [dashboard]
+networks:
+  dashboard:
+    external: true
+    name: dashboard-lab

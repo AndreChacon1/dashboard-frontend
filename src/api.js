@@ -6,7 +6,6 @@ export const session = {
 export const api = axios.create({ baseURL: import.meta.env.VITE_API_URL || 'http://localhost:3001', timeout: 10000 });
 api.interceptors.request.use(config => {
   if (session.token) config.headers.Authorization = `Bearer ${session.token}`;
-  console.info(`[JWT] ${config.method.toUpperCase()} ${config.url}`, { authorization: session.token ? 'Bearer [presente; ver token en Network]' : 'ausente' });
   return config;
 });
 api.interceptors.response.use(response => response, error => {

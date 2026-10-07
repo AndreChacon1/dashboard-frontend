@@ -21,7 +21,7 @@ El realm debe permitir `http://localhost:5173` en Web origins del cliente `fasta
 1. Login hace POST form-urlencoded al token endpoint del laboratorio. Keycloak valida la cuenta contra LDAP y devuelve `access_token`.
 2. El token se guarda en sessionStorage y se elimina al salir o recibir 401.
 3. La instancia Axios del backend agrega `Authorization: Bearer <JWT>` a GET y POST mediante un interceptor.
-4. Network del navegador muestra el header completo; la consola confirma su presencia sin copiar el secreto completo al registro.
+4. Network del navegador permite inspeccionar el header; el frontend no imprime información de JWT en la consola.
 
 El request inicial de login no lleva JWT porque precisamente lo solicita. Los preflight OPTIONS tampoco llevan Bearer; son intercambios CORS del navegador. Los requests de datos GET/POST sí deben llevarlo.
 
@@ -32,3 +32,18 @@ npm run build
 ```
 
 La configuración `VITE_*` es pública. No introducir secretos de cliente en ella.
+
+
+## Protección Fail2Ban (práctica de octubre)
+
+Dockerfile y security/ agregan Nginx + Fail2Ban. Ejecutar con NET_ADMIN mediante Compose. HTTP: 60 solicitudes/IP en 10 s; ban 60 s. Nginx y Fail2Ban fueron ejecutados en Docker Desktop Linux. Procedimiento, arquitectura y evidencias: [repositorio de pruebas](https://github.com/AndreChacon1/dashboard-load-tests).
+
+Después de arrancar LDAP y backend y crear la red `dashboard-lab`:
+
+```sh
+docker compose up -d --build
+docker compose exec frontend fail2ban-client status http-flood
+```
+
+Abrir `http://localhost:5173`. La imagen final sirve el build estático con Nginx;
+no expone el servidor de desarrollo Vite. No se imprime el JWT en la consola.
