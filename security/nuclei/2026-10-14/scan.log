@@ -1,0 +1,34 @@
+
+                     __     _
+   ____  __  _______/ /__  (_)
+  / __ \/ / / / ___/ / _ \/ /
+ / / / / /_/ / /__/ /  __/ /
+/_/ /_/\__,_/\___/_/\___/_/   v3.11.1
+
+		projectdiscovery.io
+
+[INF] Current nuclei version: v3.11.1 (unknown) - remove '-duc' flag to enable update checks
+[INF] Current nuclei-templates version: v10.5.0 (unknown) - remove '-duc' flag to enable update checks
+[INF] New templates added in latest release: 295
+[INF] Templates loaded for current scan: 62
+[INF] Executing 62 signed templates from projectdiscovery/nuclei-templates
+[INF] Targets loaded for current scan: 1
+[INF] Templates clustered: 13 (Reduced 11 Requests)
+[0:00:30] | Templates: 62 | Hosts: 1 | RPS: 5 | Matched: 0 | Errors: 0 | Requests: 159/258 (61%)
+[0:01:00] | Templates: 62 | Hosts: 1 | RPS: 3 | Matched: 0 | Errors: 0 | Requests: 217/258 (84%)
+[nginx-version] [http] [info] http://frontend ["nginx/1.22.1"]
+[http-missing-security-headers:x-frame-options] [http] [info] http://frontend
+[http-missing-security-headers:x-permitted-cross-domain-policies] [http] [info] http://frontend
+[http-missing-security-headers:cross-origin-embedder-policy] [http] [info] http://frontend
+[http-missing-security-headers:cross-origin-opener-policy] [http] [info] http://frontend
+[http-missing-security-headers:permissions-policy] [http] [info] http://frontend
+[http-missing-security-headers:x-content-type-options] [http] [info] http://frontend
+[http-missing-security-headers:referrer-policy] [http] [info] http://frontend
+[http-missing-security-headers:cross-origin-resource-policy] [http] [info] http://frontend
+[http-missing-security-headers:strict-transport-security] [http] [info] http://frontend
+[http-missing-security-headers:content-security-policy] [http] [info] http://frontend
+[nginx-eol:version] [http] [info] http://frontend ["1.22.1"]
+[0:01:17] | Templates: 62 | Hosts: 1 | RPS: 3 | Matched: 12 | Errors: 0 | Requests: 264/258 (102%)
+[INF] Scan completed in 1m. 12 matches found.
+[INF] HTTP connections: 225 total, 2 new, 223 reused (99.1%)
+[0:01:17] | Templates: 62 | Hosts: 1 | RPS: 3 | Matched: 12 | Errors: 0 | Requests: 264/258 (102%)
